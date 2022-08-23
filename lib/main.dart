@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'app/controllers/character_controller.dart';
 import 'app/views/homepage.dart';
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Character App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

@@ -1,15 +1,15 @@
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import '../constants.dart';
 import '../models/character_model.dart';
 
 class RemoteServices {
-  static var client = http.Client();
+  static var dio = Dio();
 
   static Future<List<Character>> fetchCharacters() async {
-    var response = await client.get(Uri.parse(baseUrl));
+    var response = await dio.get(baseUrl);
     if (response.statusCode == 200) {
-      var jsonString = response.body;
-      return characterFromJson(jsonString);
+      final List<dynamic> data = response.data;
+      return data.map((item) => Character.fromJson(item)).toList();
     } else {
       throw Exception('Failed to load characters');
     }

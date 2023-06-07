@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'app/controllers/character_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_character_app/app/bloc/character_bloc.dart';
 import 'app/views/homepage.dart';
 
 void main() {
@@ -11,10 +11,8 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CharacterController()),
-      ],
+    return BlocProvider(
+      create: (context) => CharacterBloc(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Character App',

@@ -1,1 +1,1 @@
-const baseUrl = 'https://hp-api.herokuapp.com/api/characters';
+const baseUrl = 'https://hp-api.onrender.com/api/characters';

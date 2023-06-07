@@ -8,8 +8,10 @@ class RemoteServices {
   static Future<List<Character>> fetchCharacters() async {
     var response = await dio.get(baseUrl);
     if (response.statusCode == 200) {
-      final List<dynamic> data = response.data;
-      return data.map((item) => Character.fromJson(item)).toList();
+      var characters = response.data as List;
+      return characters
+          .map((character) => Character.fromJson(character))
+          .toList();
     } else {
       throw Exception('Failed to load characters');
     }
